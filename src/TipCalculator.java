@@ -11,21 +11,23 @@ public class TipCalculator {
 
         double totalPrice = 0.00;
 
-
         while (true) {
-            System.out.println("Enter a cost in dollars and cents (-1 to end): ");
+            System.out.print("Enter a cost in dollars and cents (-1 to end): ");
             float foodCost = scan.nextFloat();
             totalPrice += foodCost;
-
             if (foodCost == -1) {
+                totalPrice += 1;
                 break;
             }
         }
         System.out.println("Enter tip percent: ");
         double tipPercent = scan.nextDouble();
         System.out.println("Total bill before tip: $" + totalPrice);
+        System.out.println("Average bill per person: " + totalPrice/numPeople);
         System.out.println("Tip Percent: " + tipPercent);
         System.out.println("Total Tip: " + tipPercent * totalPrice);
+        System.out.println("Average tip per person: $" + totalPrice/numPeople);
+        System.out.println("Total bill with tip: $" + totalPrice * (1 + tipPercent));
 
         scan.close();
     }
